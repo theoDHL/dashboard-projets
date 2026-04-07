@@ -127,6 +127,7 @@
   <div class="topbar-right">
     <span class="sync-info"><span class="sync-dot"></span>Actualisation auto</span>
     <span class="last-update" id="lastUpdate">—</span>
+    <button class="proj-btn" onclick="exportHTML()">⬇ Exporter</button>
     <button class="proj-btn" onclick="toggleProjection()">⛶ Projection</button>
   </div>
 </div>
@@ -385,6 +386,24 @@ function delProjet(i){
 
 function addTrend(){D.trend.push({m:"Mois",v:0});renderDat();}
 function delTrend(i){if(D.trend.length<=1){toast("Il faut au moins un mois.",false);return;}D.trend.splice(i,1);renderDat();}
+
+function exportHTML(){
+  syncConsomme();
+  var src=document.documentElement.outerHTML;
+  // Remplacer les données par défaut par les données actuelles
+  var dataStr=JSON.stringify(D);
+  src=src.replace(/var DEFAULT_D=\{[\s\S]*?\};\s*function loadLocal/,
+    'var DEFAULT_D='+dataStr+';\nfunction loadLocal');
+  // Forcer le chargement des données exportées
+  src=src.replace("localStorage.getItem('dhl_v2')",
+    "null /* export */");
+  var blob=new Blob([src],{type:'text/html'});
+  var a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='dashboard-projets.html';
+  a.click();
+  toast("Fichier exporté avec vos données !");
+}
 
 function saveAndRefresh(){
   syncConsomme();
