@@ -110,7 +110,7 @@
   // Collez ici l'URL de votre fichier Excel sur SharePoint
   // Exemple : https://dhl.sharepoint.com/sites/MonEquipe/Documents/Dashboard%20Projets%20DHL.xlsx?download=1
   // Voir README.md pour obtenir cette URL en 3 clics
-  var EXCEL_URL = "https://dpdhl.sharepoint.com/:x:/r/sites/LOUSFS/Shared%20Documents/TECHNIQUE/THEO/Orga%20service%20Projet/Dashboard.xlsx?d=we4bc82e66e044c0191035a85ce8f244d&csf=1&web=1&e=rkRoR0?download=1";
+  var EXCEL_URL = "https://dpdhl.sharepoint.com/:x:/r/sites/LOUSFS/Shared%20Documents/TECHNIQUE/THEO/Orga%20service%20Projet/Dashboard.xlsx?d=we4bc82e66e044c0191035a85ce8f244d&csf=1&web=1&e=rkRoR0&download=1";
 
   // Intervalle d'actualisation en millisecondes (120000 = 2 minutes)
   var REFRESH_INTERVAL = 120000;
@@ -169,7 +169,7 @@ var D = {
 // On utilise la librairie SheetJS pour lire le .xlsx
 // ══════════════════════════════════════════════════════════
 function loadFromExcel() {
-  if (EXCEL_URL === "https://dpdhl.sharepoint.com/:x:/r/sites/LOUSFS/Shared%20Documents/TECHNIQUE/THEO/Orga%20service%20Projet/Dashboard.xlsx?d=we4bc82e66e044c0191035a85ce8f244d&csf=1&web=1&e=rkRoR0?download=1") return;
+  if (EXCEL_URL === "https://dpdhl.sharepoint.com/:x:/r/sites/LOUSFS/Shared%20Documents/TECHNIQUE/THEO/Orga%20service%20Projet/Dashboard.xlsx?d=we4bc82e66e044c0191035a85ce8f244d&csf=1&web=1&e=rkRoR0&download=1") return;
 
   var script = document.createElement('script');
   script.src = 'https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js';
